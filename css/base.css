@@ -2,12 +2,12 @@
     color:white;
 }
 
-.thumbnail-max {
-  max-width:200px;
-  max-height:200px;
-}
-
 .illustration{
   max-width:400px;
-  max-height:400px;
+  height:auto;
+}
+
+.profilepic {
+  width:200px;
+  height:auto;
 }

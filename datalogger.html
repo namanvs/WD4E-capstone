@@ -2,12 +2,13 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - WD4E Index</title>
+  <title>Naman's WD4E Portfolio</title>
   <meta name="description" content="Naman's WD4E Capstone">
   <meta name="keywords" content="WD4E, Coursera, Naman Shah">
   <meta name="author" content="Naman Shah">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/datalogger.css">
 </head>
 <body>
 	<nav class ="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -35,28 +36,24 @@
         <div class="row">
             <section>
                 <h1>Data Logger Project</h1>
-                <p>This page is a project log for a personal project I undertook in Junior year.</p>
+                <p>This page is a project log for a personal project I undertook in Junior year.<br><em>Note:</em> Click on images in the project log to open them up in an enlarged modal!</p>
             </section>
         </div>
-		<div class="row">
-            <section>
+		<div class="row mb-5">
+            <img class= "profilepic mx-auto order-lg-2" src="https://i1.rgstatic.net/ii/profile.image/801211578064897-1568035134750_Q128/Shane-Johnson-3.jpg" alt="Headshot of Shane">
+            <div class="col-lg-9">
                 <h2>Introduction</h2>
-                <img class = "thumbnail-max col-lg-3 float-right" src="https://i1.rgstatic.net/ii/profile.image/801211578064897-1568035134750_Q128/Shane-Johnson-3.jpg" alt="Headshot of Shane">
-                <div class="col-lg-9">
-                    <p>I came across a visiting professor, <a href="https://www.researchgate.net/profile/Shane-Johnson-3">Dr Shane Johnson</a>, who teaches at the <a href="http://en.sjtu.edu.cn/">Shanghai Jiao Tong University</a>, who was describing a problem he needed help with. Shane specializes in the field of simulation, and wanted to simulate cardboard boxes and the kinds of forces they experienced as they were being shipped from warehouses to consumers.</p>
-                </div>
-            </section>
+                <p>I met a visiting professor, <a href="https://www.researchgate.net/profile/Shane-Johnson-3">Prof. Shane Johnson</a>, who teaches at the <a href="http://en.sjtu.edu.cn/">Shanghai Jiao Tong University</a>(SJTU), who was describing a problem he needed help with. Shane specializes in the field of simulation, and wanted to simulate cardboard boxes and the kinds of forces they experienced as they were being shipped from warehouses to consumers.</p>
+            </div>
 		</div>
-        <div class="row">
-            <section>
+        <div class="row mt-5 mb-5">
+            <img class = "illustration mx-auto order-lg-2 float-right" src="https://17llr810ixei7als121zj0bj-wpengine.netdna-ssl.com/wp-content/uploads/2019/09/Route-app-damaged-package-300x200.png" alt="Damaged package">
+            <div class="col-lg-6">
                 <h2>Motivation</h2>
-                <img class = "illustration float-right order-lg-2" src="https://17llr810ixei7als121zj0bj-wpengine.netdna-ssl.com/wp-content/uploads/2019/09/Route-app-damaged-package-300x200.png" alt="Damaged package">
-                <div class="col-lg-9 order-lg-1">
-                    <p>The practical reason for this is that packaging engineers have to select materials and design packaging to protect the goods contained within. There exist standard tests that can be used to certify that a package meets minimum standards of protection, but nobody has investigated if the standard itself accurately reflects the conditions that packaging goes through in real life. Furthermore, understanding the conditions a package needs to withstand can help packaging engineers optimize their designs to save on packaging costs and minimize product damage.</p>
-                </div>
-            </section>
+                <p>The practical reason for this is that packaging engineers have to select materials and design packaging to protect the goods contained within. There exist standard tests that can be used to certify that a package meets minimum standards of protection, but nobody has investigated if the standard itself accurately reflects the conditions that packaging goes through in real life. Furthermore, understanding the conditions a package needs to withstand can help packaging engineers optimize their designs to save on packaging costs and minimize product damage.</p>
+            </div>
 		</div>
-        <div class="row">
+        <div class="row mt-5 mb-5">
             <section>
                 <h2>Process</h2>
                 <p>I offered to help build a battery-powered data logger that could be placed in a package and would measure the forces it experienced while being shipped. I took this as an opportunity to teach myself hobby electronics and learn to put together a complete hardware package. The steps involved were:</p>
@@ -69,38 +66,74 @@
                 </ol>
             </section>
 		</div>
-        <div class="row">
-            <section>
+        <div class="row mt-5 mb-5">
+            <figure class="figure col-lg-6 order-lg-2 float-right pl-3">
+                <img class = "illustration" src="img/datalogger-schematic.png" alt="Data Logger Prototype Schematic" onClick="handleImageClick(this);" id="img1">
+                <figcaption class="figure-caption">Hand-assembled prototype. I used both sides of the breadboard for compactness!</figcaption>
+            </figure>
+            <div class="col-lg-6">
                 <h3>1. Selecting Components</h3>
-                <p></p>
-            </section>
+                <p>I had to consider a myriad factors in selecting components, however the chief concerns were selecting an accelerometer that had sufficient range to capture the hardest impacts and sufficient sample rate to capture an accurate signal. Mechanical shocks are very high-amplitude and high-frequency. I finally settled on an ADXL372 module with a range of +-200G and a sample rate of up to 3200Hz.</p>
+                <p>The other chief consideration was the microcontroller. I went with an ESP8266 because it was fast, cheap, and had sufficient memory to buffer many samples from the accelerometer. At this stage, we hadn't firmed up the full featureset of the data logger, so the ESP8266's WiFi capabilities were also potentially useful. The only major downside of the ESP8266 was that it was a relatively power-hungry controller. </p>
+                <p>However, some features we knew we definitely wanted were a real-time clock, an SD card reader for long-term, high-capacity data storage, and a GPS module.</p>
+                <p>I added a few other components like a screen, some buttons, a power regulation module, a Lithium-polymer battery and a charging module.</p>
+                <p>I then drew up the following schematic in <a href="https://fritzing.org/">Fritzing</a>, a free circuit layout tool.</p>
+            </div>
 		</div>
-        <div class="row">
-            <section>
+        <div class="row mt-5 mb-5">
+            <figure class="figure col-lg-6 order-lg-2 float-right">
+                <img class = "illustration" src="img/datalogger-prototype.png" alt="Data Logger Prototype Breadboard" onClick="handleImageClick(this);" id="img2">
+                <figcaption class="figure-caption">Hand-assembled prototype. I used both sides of the breadboard for compactness!</figcaption>
+            </figure>
+            <div class="col-lg-6">
                 <h3>2. Prototyping on a breadboard</h3>
-                <p></p>
-            </section>
+                <p>I assembled all the components by hand onto a breadboard so that I would have a working circuit to use for writing and debugging firmware. This also gave an idea of the dimensions of the device. This effort took quite a few hours, but I was satisfied with the final result. I omitted the Lithium-polymer battery, power regulator and charging module to simplify the prototype. For testing, I simply powered the device off the on-board power-regulator on the ESP8266 breakout I used.</p>
+            </div>
+            
 		</div>
-        <div class="row">
-            <section>
-                <h3>3. Writing firmware</h3>
-                <p></p>
-            </section>
+        <div class="row mt-5 mb-5">
+            <h3>3. Writing firmware</h3>
+            <p>Another reason why I chose the ESP8266 was that it was supported by the <a href="https://www.arduino.cc/">Arduino</a> platform. I was familiar with Arduino's C/C++-like language and comfortable with working in its <abbr title="Integrated Development Environment">IDE</abbr>. Unfortunately, I cannot share the code here, but I followed a simple <a href="https://en.wikipedia.org/wiki/Finite-state_machine">state machine</a> design pattern. The controller would maintain a buffer of 2s of acceleration data sampled at 1000Hz (the fastest I could sample using the communication protocol I chose) by reading an acceleration value from the accelerometer every millisecond. Once it detected an acceleration value larger than some set threshold, it would devote all resources to recording 2 more seconds of data before flushing the recorded accelerations to the SD card.</p>
+            <p>Each shock event consisted of 2 seconds of data before the impact and 2 seconds of data after the impact. An equivalent drop height and orientation for the package could then be estimated from the acceleration data.</p>
+            <p>This operation was rather power-hungry, and I could have optimized it further to take advantage of the ADXL372's in-built buffering and thresholding functions, but its own buffers were too small and my choice of communication protocol did not allow me to access its advanced functionalities. Had I managed to do so, I could have greatly extended the battery life of the data logger.</p>
 		</div>
-        <div class="row">
-            <section>
+        <div class="row mt-5 mb-5">
+            <figure class="figure col-lg-6 order-lg-2 float-right">
+                <img class = "illustration" src="img/datalogger-layout.png" alt="Data Logger PCB Layout" onClick="handleImageClick(this);" id="img3">
+                <figcaption class="figure-caption">Eagle schematic for the data logger PCB showing traces, vias, through-holes and pads for components.</figcaption>
+            </figure>
+            <div class="col-lg-6">
                 <h3>4. Laying out schematics for a Printed Circuit Board</h3>
-                <p></p>
-            </section>
+                <p>This step was the one which I could not do myself, as while I had taught myself how to select components, wire up electronics and write firmware, I had not taught myself how to lay <abbr title="Printed Circuit Board">PCB</abbr>s out. I worked with a PCB manufacturer in Shenzhen, China to produce the final layouts of the data logger PCB and assemble them.</p>
+                <p>I fully intend to eventually learn how to lay out PCBs on my own using Eagle or KiCad, but between other personal projects and full-time work, it will be something for the future.</p>
+                
+            </div>
 		</div>
-        <div class="row">
-            <section>
+        <div class="row mt-5 mb-5">
+            <figure class="figure col-lg-6 order-lg-2 float-right">
+                <img class = "illustration" src="img/datalogger-pcb.jpg" alt="Data Logger PCB" onClick="handleImageClick(this);" id="img4">
+                <figcaption class="figure-caption">The completed PCB.</figcaption>
+            </figure>
+            <div class="col-lg-6">
                 <h3>5. Getting PCBs manufactured and debugging</h3>
-                <p></p>
-            </section>
+                <p>I eventually travelled to Shanghai, China in the summer of 2018 to meet Shane at SJTU and oversee the fabrication and delivery of the final PCBs. By this point, we had removed the GPS tracker and added more interfacing options like buttons and a screen.</p>
+                <p>The addition of the user interface made it much harder to program, since all UI operations had to happen between samples. The code I had cobbled together was finally becoming too messy to manage well, so I settled for a product with a buggy UI but robust core functionality. I added some useful tools like the ability to format the SD card and the ability to calibrate the accelerometer from the device.</p>
+            </div>
+		</div>
+        <div class="row mt-5 mb-5">
+            <h3>Conclusion</h3>
+            <p>This project was a good challenge for me and I learned plenty from it. It gave me a chance to learn and apply a whole bunch of new skills and try new things out. The data we are collecting from these data loggers (there's around 20 of them out in the wild now) is still being analyzed to see if we can determine effective drop heights and orientations accurately, however initial results are promising.</p>
 		</div>
 	</article>
+
+    <div id="myModal" class="modal">
+        <img class="modal-content" id="modalImage" src="">
+        <div id="caption"></div>
+        <div class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</div>
+ </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+<script src="js/datalogger.js"></script>
 </body>
 </html>
