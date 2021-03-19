@@ -41,7 +41,10 @@
 		<div class="row">
             <section>
                 <h2>Introduction</h2>
-                <img class = "illustration float-right order-lg-2" src="" alt="Damaged package">
+                <figure class="figure col-lg-6 order-lg-2 float-right pl-3">
+                    <img class = "illustration" src="img/fea-overview.png" alt="Stress contour plot of an FEA analysis">
+                    <figcaption class="figure-caption">Numerical results from FEA are often color-coded with contour plots to make reading them easier.</figcaption>
+                </figure>
                 <div class="col-lg-9 order-lg-1">
                     <p>The Finite Element Method is often used to give approximate answers to complicated physical problems. It is commonly applied to problems of mechanical, fluid, thermal and electromagnetic behavior.</p>
                 </div>
@@ -55,20 +58,38 @@
                     <li>We can answer simple questions easily. The invention of calculus has led physicists to develop models of physical behavior that are quite accurate to real-life for simple problems. Examples of this include the bending of a diving board as someone jumps on it, how heat conducts itself away from your hand into a cold metal railing you grasp, or how water flowing slowly in a river behaves.</li>
                     <li>Any complicated problem can be decomposed into a series of smaller, simpler subproblems, and the solution to the complicated problem can be reconstituted by summing up the solutions of these smaller, simpler subproblems.</li>
                 </ol>
-                <p>For those who recall or have taken some introductory calculus, this approach to problem solving is analogous to the approach taken with computing integrals: take any function and chop the area under its graph into a series of small rectangles and add up the areas of the small rectangles.</p>
+                <figure class="figure col-lg-6 order-lg-2 float-right pl-3">
+                    <img class = "illustration" src="https://useruploads.socratic.org/bSNeRFrSmuueJ4GatIGQ_iarea3.gif" alt="The area under a graph is the sum of infinitely many small rectangles">
+                    <figcaption class="figure-caption">Pardon the math, just focus on the visual idea of representing the area under a curve as the sum of thin rectangles of height equal to the curve at that point.</figcaption>
+                </figure>
+                <div class="col-lg-9 order-lg-1">
+                    <p>For those who recall or have taken some introductory calculus, this approach to problem solving is analogous to the approach taken with computing integrals: take any function and chop the area under its graph into a series of small rectangles and add up the areas of the small rectangles. The key difference is that the <b>Finite</b> Element Method uses a <em>finite</em> number of smaller terms, whereas integration uses limits to sum an <em>infinite</em> number of smaller terms. What makes FEA work is that after a certain number of smaller terms, the results don't change meaningfully. We call this <em>convergence</em>.</p>
+                </div>
             </section>
 		</div>
         <div class="row">
             <section>
                 <h3>Application to FEA</h3>
-                <p>How this strategy manifests itself in Finite Element Analysis is primarily in how to chop up a complicated problem into smaller, simpler problems. We know how simple shapes like triangles, squares, tetrahedra and cubes behave, so we can chop any complicated shape up into a mesh of interconnected elements. Once we apply some known things about the analysis problem, e.g. how much force we are applying to a model, where the force is applied, and what material the model is made of, we can start from these boundary conditions and solve the physics problem we are interested in step by step until we have results for the entire mesh. Then, we can add these results up to approximate the behavior of the whole model!</p>
+                <figure class="figure col-lg-6 order-lg-2 float-right pl-3">
+                    <img class = "illustration" src="img/fea-discretization.png" alt="A smooth half-circle is replaced by a set of straight-edged triangles">
+                    <figcaption class="figure-caption">FEA practitioners also have to make sure they use enough elements to approximate the geometry of their model well &#8212; use too few elements and a circle gets discretized into a square!</figcaption>
+                </figure>
+                <div class="col-lg-9 order-lg-1">
+                    <p>How this strategy manifests itself in Finite Element Analysis is primarily in how to chop up a complicated problem into smaller, simpler problems. We know how simple shapes like triangles, squares, tetrahedra and cubes behave, so we can chop any complicated shape up into a mesh of interconnected elements. Once we apply some known things about the analysis problem, e.g. how much force we are applying to a model, where the force is applied, and what material the model is made of, we can start from these boundary conditions and solve the physics problem we are interested in step by step until we have results for the entire mesh. Then, we can add these results up to approximate the behavior of the whole model!</p>
+                </div>
             </section>
 		</div>
         <div class="row">
             <section>
                 <h3>Practical Considerations</h3>
-                <p>Of course, the finer you chop up a problem, the more simple problems you need to solve. The rise of faster, more powerful computers has sped up the time it takes to solve these simple problems, so we can afford to make our meshes finer and finer, and include even more complicated physical models for each little element. However, at the end of the day, we have to decide on the number of elements we want and stick with that. This is where the “Finite” in Finite Element Method comes in. Of course, as we increase the number of elements, our results become more and more accurate, but at some point, we hit diminishing returns, where the time it takes to solve a problem outweighs the gain in accuracy. It is up to the skilled practitioner to decide when the tradeoff between time and accuracy is justified, and when to stop refining the model.</p>
-                <p>I hope this has given you some insight into how the Finite Element Method works!</p>
+                <figure class="figure col-lg-6 order-lg-2 float-right pl-3">
+                    <img class = "illustration" src="https://ketiv.com/app/uploads/2020/03/finite-element-analysis-autodesk-fea-1.jpg" alt="The time it takes to solve FEA problems scales non-linearly with the number of elements.">
+                    <figcaption class="figure-caption">When using supercomputers to solve problems, time is quite literally money!</figcaption>
+            </figure>
+                <div class="col-lg-9 order-lg-1">
+                    <p>Of course, the finer you chop up a problem, the more simple problems you need to solve. The rise of faster, more powerful computers has sped up the time it takes to solve these simple problems, so we can afford to make our meshes finer and finer, and include even more complicated physical models for each little element. However, at the end of the day, we have to decide on the number of elements we want and stick with that. This is where the “Finite” in Finite Element Method comes in. Of course, as we increase the number of elements, our results become more and more accurate, but at some point, we hit diminishing returns, where the time it takes to solve a problem outweighs the gain in accuracy. It is up to the skilled practitioner to decide when the tradeoff between time and accuracy is justified, and when to stop refining the model.</p>
+                    <p>I hope this has given you some insight into how the Finite Element Method works!</p>
+                </div>
             </section>
 		</div>
 	</article>
