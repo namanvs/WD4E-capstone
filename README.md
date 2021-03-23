@@ -1,0 +1,1 @@
+This repository has been deployed as a Github page at: [https://namanvs.github.io/WD4E-capstone/](https://namanvs.github.io/WD4E-capstone/)
